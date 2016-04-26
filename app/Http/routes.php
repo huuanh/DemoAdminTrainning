@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/admin', 'admin\LessonsController@index');
+
+Route::group(['namespace' => 'admin'], function()
+{
+    Route::resource('admin/lessons', 'LessonsController');
+});
