@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Repositories\Lessons\LessonInterface;
+use App\Repositories\Eloquent\LessonRepository;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class LessonsController extends Controller
 {
-    public function __construct(LessonInterface $lesson) {
+    public function __construct(LessonRepository $lesson) {
         $this->lesson = $lesson;
     }
 

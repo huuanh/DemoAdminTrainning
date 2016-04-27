@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Repositories\Lessons;
+namespace App\Repositories\Eloquent;
 
 use App\Tb_lesson;
 
-class DbLessonRepository implements LessonInterface {
+class DbLessonRepository implements LessonRepository {
     public function getAllLesson() {
         return Tb_lesson::all();
     }

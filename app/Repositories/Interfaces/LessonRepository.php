@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Lessons;
+namespace App\Repositories\Eloquent;
 
-interface LessonInterface {
+interface LessonRepository {
     public function getAllLesson();
 
     public function findById($id);

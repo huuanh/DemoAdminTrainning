@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\LessonCsv;
+namespace App\Repositories\Eloquent;
 
-interface LessonCsvInterface {
+interface LessonCsvRepository {
     public function downloadExcel($type);
 
     public function importExcel();

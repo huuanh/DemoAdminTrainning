@@ -8,6 +8,6 @@ class LessonServiceProvider extends ServiceProvider {
     public function boot() {}
 
     public function register() {
-        $this->app->bind(\App\Repositories\Lessons\LessonInterface::class, \App\Repositories\Lessons\DbLessonRepository::class);
+        $this->app->bind(\App\Repositories\Eloquent\LessonRepository::class, \App\Repositories\Eloquent\DbLessonRepository::class);
     }
 }

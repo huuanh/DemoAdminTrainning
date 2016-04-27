@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Repositories\LessonCsv;
+namespace App\Repositories\Eloquent;
 use App\Tb_lesson;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
 
-class LessonCsvRepository implements LessonCsvInterface {
+class DbLessonCsvRepository implements LessonCsvRepository {
     public function downloadExcel($type) {
         $data = Tb_lesson::get()->toArray();
         return Excel::create('CSVLesson', function($excel) use ($data) {

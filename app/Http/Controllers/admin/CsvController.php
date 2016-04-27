@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Repositories\LessonCsv\LessonCsvInterface;
+use App\Repositories\Eloquent\LessonCsvRepository;
 
 class CsvController extends Controller
 {
-    public function __construct(LessonCsvInterface $csv) {
+    public function __construct(LessonCsvRepository $csv) {
         $this->csv = $csv;
     }
 
