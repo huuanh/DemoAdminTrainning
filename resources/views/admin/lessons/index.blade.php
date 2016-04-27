@@ -3,21 +3,14 @@
 @section('content')
 
 <div class="row col-lg-12">
-    <div class="col col-lg-3">
-        <div class="row">
-            <h4>This is logo!!</h4>
-        </div>
-
-        <div class="row">
-            <h4>this is menu bar!!</h4>
-        </div>
-    </div>
+    @include('admin.lessons.menubar')
 
     <div class="col col-lg-9">
         <div class="row col-lg-12">
             <div class="row">
-                <div class="col col-lg-2 col-lg-offset-0">
-                <td><a class="btn btn-primary" href="{!! URL::route('admin.lessons.create') !!}">New Lesson</a></td>
+                <div class="col">
+                    <a class="btn btn-primary" href="{!! URL::route('admin.lessons.create') !!}">新規登録</a>
+                    <a class="btn btn-primary" href="admin/importExport">CSVインポート</a>
                 </div>
 
                 <div class="col col-lg2">
@@ -29,13 +22,13 @@
             <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th>PL Trung</th>
-                    <th>PL Nho</th>
-                    <th>Lesson</th>
-                    <th>Pre-task</th>
-                    <th>Pre-read</th>
-                    <th>Lesson_id</th>
-                    <th>Action</th>
+                    <th>中分類　タイトル</th>
+                    <th>小分類　タイトル</th>
+                    <th>レッスン　タイトル</th>
+                    <th>事前課題指示文　タイトル</th>
+                    <th>ﾌﾟﾚﾘｰﾄﾞID　タイトル</th>
+                    <th>レッスンシートID　タイトル</th>
+                    <th>アクション</th>
                   </tr>
                 </thead>
                 <tbody>

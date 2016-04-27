@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Lessons;
 
 interface LessonInterface {
     public function getAllLesson();

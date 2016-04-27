@@ -24,3 +24,7 @@ Route::group(['namespace' => 'admin'], function()
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('admin/importExport', 'admin\CsvController@importExport');
+Route::get('admin/downloadExcel/{type}', 'admin\CsvController@downloadExcel');
+Route::post('admin/importExcel', 'admin\CsvController@importExcel');
