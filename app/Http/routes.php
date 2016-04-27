@@ -21,3 +21,6 @@ Route::group(['namespace' => 'admin'], function()
 {
     Route::resource('admin/lessons', 'LessonsController');
 });
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

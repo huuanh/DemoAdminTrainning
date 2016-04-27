@@ -23,4 +23,32 @@ class LessonsController extends Controller
         $lesson = $this->lesson->findById($id);
         return view('admin.lessons.show', compact('lesson'));
     }
+
+    public function create() {
+        $lesson = $this->lesson->newLesson();
+        return view('admin.lessons.create', compact('lesson'));
+    }
+
+    public function store(Request $request) {
+        $this->lesson->create($request);
+        return redirect()
+        ->route('admin.lessons.index');
+    }
+
+    public function edit($id) {
+        $lesson = $this->lesson->edit($id);
+        return view('admin.lessons.edit', compact('lesson'));
+    }
+
+    public function update(Request $request, $id) {
+        $this->lesson->update($request, $id);
+        return redirect()
+            ->route('admin.lessons.index');
+    }
+
+    public function destroy($id) {
+        $this->lesson->destroy($id);
+        return redirect()
+            ->route('admin.lessons.index');
+    }
 }

@@ -7,9 +7,13 @@ interface LessonInterface {
 
     public function findById($id);
 
+    public function newLesson();
+
     public function create($request);
 
-    public function update($request);
+    public function edit($id);
+
+    public function update($request, $id);
 
     public function destroy($id);
 }
