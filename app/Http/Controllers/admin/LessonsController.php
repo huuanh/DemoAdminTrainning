@@ -10,6 +10,7 @@ use App\Http\Requests\CreateLessonRequest;
 class LessonsController extends Controller
 {
     public function __construct(LessonRepository $lesson) {
+
         $this->lesson = $lesson;
     }
 
