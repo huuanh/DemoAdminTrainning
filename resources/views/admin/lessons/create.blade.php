@@ -6,6 +6,14 @@
     @include('admin.lessons.menubar')
 
     <div class="col col-lg-9">
+        @if ($errors->has())
+            <ul style="color:rgba(255, 0, 0, 0.78);">
+              @foreach ($errors->all() as $error)
+                <li>{!! $error !!}</li>
+              @endforeach
+            </ul>
+        @endif
+
         {!! Form::open(array('route' => 'admin.lessons.store', 'method' => 'post')) !!}
             <div class="form-group">
                 {!! Form::text('type_id', '', ['class' => 'form-control', 'placeholder' => 'type']) !!}

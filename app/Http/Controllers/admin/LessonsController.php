@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Repositories\Eloquent\LessonRepository;
-use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateLessonRequest;
 
 class LessonsController extends Controller
 {
@@ -29,7 +29,7 @@ class LessonsController extends Controller
         return view('admin.lessons.create', compact('lesson'));
     }
 
-    public function store(Request $request) {
+    public function store(CreateLessonRequest $request) {
         $this->lesson->create($request);
         return redirect()
         ->route('admin.lessons.index');
@@ -40,7 +40,7 @@ class LessonsController extends Controller
         return view('admin.lessons.edit', compact('lesson'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(CreateLessonRequest $request, $id) {
         $this->lesson->update($request, $id);
         return redirect()
             ->route('admin.lessons.index');
