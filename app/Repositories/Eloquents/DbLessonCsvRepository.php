@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Repositories\Eloquent;
-use App\Tb_lesson;
+use App\Model\Lesson;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
 
 class DbLessonCsvRepository implements LessonCsvRepository {
     public function downloadExcel($type) {
-        $data = Tb_lesson::get()->toArray();
+        $data = Lesson::get()->toArray();
         return Excel::create('CSVLesson', function($excel) use ($data) {
             $excel->sheet('mySheet', function($sheet) use ($data)
             {
@@ -28,7 +28,7 @@ class DbLessonCsvRepository implements LessonCsvRepository {
                         'lesson' => $value->lesson, 'content' => $value->content, ];
                 }
                 if(!empty($insert)){
-                    DB::table('tb_lessons')->insert($insert);
+                    DB::table('lessons')->insert($insert);
                     return redirect()
                         ->route('admin.lessons.index');
                 }

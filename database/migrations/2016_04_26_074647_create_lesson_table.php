@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTbLessonTable extends Migration
+class CreateLessonTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTbLessonTable extends Migration
     public function up()
     {
         //
-        Schema::create('tb_lessons', function(Blueprint $table){
+        Schema::create('lessons', function(Blueprint $table){
             $table->increments('id');
             $table->string('lessonCode')->unique();
             $table->string('type_id');
@@ -33,6 +33,6 @@ class CreateTbLessonTable extends Migration
     public function down()
     {
         //
-        Schema::drop('tb_lessons');
+        Schema::drop('lessons');
     }
 }
