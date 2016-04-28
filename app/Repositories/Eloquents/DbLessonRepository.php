@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Eloquent;
 
-use App\Model\Lesson;
+use App\Models\Lesson;
 
 class DbLessonRepository implements LessonRepository {
     public function getAllLesson() {

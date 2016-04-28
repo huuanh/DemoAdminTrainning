@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col">
                     <a class="btn btn-primary" href="{!! URL::route('admin.lessons.create') !!}">新規登録</a>
-                    <a class="btn btn-primary" href="admin/importExport">CSVインポート</a>
+                    <a class="btn btn-primary" href="/admin/importExport">CSVインポート</a>
                 </div>
 
                 <div class="col col-lg2">

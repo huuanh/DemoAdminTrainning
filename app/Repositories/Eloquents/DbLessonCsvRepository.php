@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Repositories\Eloquent;
-use App\Model\Lesson;
+use App\Models\Lesson;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
