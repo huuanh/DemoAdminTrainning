@@ -12,19 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome.welcome');
 });
-
-Route::get('/admin', 'Admin\LessonsController@index');
-
-Route::group(['namespace' => 'Admin'], function()
-{
-    Route::resource('admin/lessons', 'LessonsController');
-});
-Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('admin/importExport', 'Admin\CsvController@importExport');
-Route::get('admin/downloadExcel/{type}', 'Admin\CsvController@downloadExcel');
-Route::post('admin/importExcel', 'Admin\CsvController@importExcel');
+Route::get('/admin', 'Admin\LessonsController@index');
+
+Route::group(['prefix' => 'admin/lessons', 'namespace' => 'Admin'], function() {
+    Route::get('importExport', 'LessonsController@importExport');
+    Route::get('downloadExcel/{type}', 'LessonsController@downloadExcel');
+    Route::post('importExcel', 'LessonsController@importExcel');
+});
+
+Route::group(['prefix' => 'admin','namespace' => 'Admin'], function()
+{
+    Route::resource('lessons', 'LessonsController');
+});
+
+Route::auth();
+

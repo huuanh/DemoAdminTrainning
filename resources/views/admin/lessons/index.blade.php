@@ -1,4 +1,4 @@
-@extends('admin.adminLayout')
+@extends('layouts.adminLayout')
 
 @section('content')
 
@@ -9,8 +9,8 @@
         <div class="row col-lg-12">
             <div class="row">
                 <div class="col">
-                    <a class="btn btn-primary" href="{!! URL::route('admin.lessons.create') !!}">新規登録</a>
-                    <a class="btn btn-primary" href="/admin/importExport">CSVインポート</a>
+                    {!! link_to_route('admin.lessons.create', '新規登録', [], ['class' => 'btn btn-primary']) !!}
+                    <a class="btn btn-primary" href="/admin/lessons/importExport">CSVインポート</a>
                 </div>
 
                 <div class="col col-lg2">
@@ -40,7 +40,7 @@
                     <td>{!! ($lesson->pre_lesson_id >> 0) !!}</td>
                     <td>{!! $lesson->pre_lesson_id !!}</td>
                     <td>{!! $lesson->lessonCode !!}</td>
-                    <td><a class="btn btn-primary" href="{!! URL::route('admin.lessons.edit', $lesson->id) !!}">Edit</a></td>
+                    <td>{!! link_to_route('admin.lessons.edit', 'Edit', [$lesson->id], ['class' => 'btn btn-primary']) !!}</td>
                     <td>
                     {!! Form::open(['method' => 'DELETE', 'route' => ['admin.lessons.destroy', $lesson->id]]) !!}
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}

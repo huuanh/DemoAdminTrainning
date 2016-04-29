@@ -6,7 +6,6 @@ use App\Repositories\Interfaces\LessonRepository;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateLessonRequest;
-use Illuminate\Support\Facades\Session;
 
 class LessonsController extends Controller
 {
@@ -50,6 +49,23 @@ class LessonsController extends Controller
 
     public function destroy($id) {
         $this->lesson->destroy($id);
+        return redirect()
+            ->route('admin.lessons.index');
+    }
+
+    public function importExport()
+    {
+        return view('admin.lessons.importExport');
+    }
+
+    public function downloadExcel($type)
+    {
+        $this->lesson->downloadExcel($type);
+    }
+
+    public function importExcel()
+    {
+        $this->lesson->importExcel();
         return redirect()
             ->route('admin.lessons.index');
     }
