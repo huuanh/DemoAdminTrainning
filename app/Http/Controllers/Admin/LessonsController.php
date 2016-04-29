@@ -6,6 +6,7 @@ use App\Repositories\Interfaces\LessonRepository;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateLessonRequest;
+use Illuminate\Http\Request;
 
 class LessonsController extends Controller
 {
@@ -15,8 +16,8 @@ class LessonsController extends Controller
     }
 
     //
-    public function index() {
-        $lessons = $this->lesson->getAllLesson();
+    public function index(Request $request) {
+        $lessons = $this->lesson->getAllLesson($request);
         return view('admin.lessons.index', compact('lessons'));
     }
 

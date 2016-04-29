@@ -3,7 +3,7 @@
 namespace App\Repositories\Interfaces;
 
 interface LessonRepository {
-    public function getAllLesson();
+    public function getAllLesson($request);
 
     public function findById($id);
 

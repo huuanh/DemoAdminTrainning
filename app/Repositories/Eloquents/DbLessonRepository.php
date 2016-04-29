@@ -11,8 +11,14 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
 
 class DbLessonRepository implements LessonRepository {
-    public function getAllLesson() {
-        return Lesson::all();
+    public function getAllLesson($request) {
+        if($request['type'] or $request['part'] or $request['preview'] ) {
+            return Lesson::where('part_id', '=', $request['part']);
+//            DB::table('lessons')->where('part_id', $request['part'])->first();
+        }
+        else {
+            return Lesson::all();
+        }
     }
 
     public function findById($id) {
