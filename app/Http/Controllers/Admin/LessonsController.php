@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Repositories\Eloquent\LessonRepository;
+use App\Repositories\Interfaces\LessonRepository;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateLessonRequest;

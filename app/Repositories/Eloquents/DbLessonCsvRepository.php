@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Repositories\Eloquent;
+namespace App\Repositories\Eloquents;
 use App\Models\Lesson;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
+use App\Repositories\Interfaces\LessonCsvRepository;
 
 class DbLessonCsvRepository implements LessonCsvRepository {
     public function downloadExcel($type) {

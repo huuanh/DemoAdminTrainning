@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Repositories\Eloquent;
+namespace App\Repositories\Eloquents;
+
+use App\Repositories\Interfaces\LessonRepository;
 
 use App\Models\Lesson;
 

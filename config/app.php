@@ -156,8 +156,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\LessonServiceProvider::class,
-        App\Providers\LessonCsvServiceProvider::class,
+        App\Providers\ZkaiServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
 
     ],

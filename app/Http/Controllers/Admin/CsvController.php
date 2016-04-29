@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Repositories\Eloquent\LessonCsvRepository;
+use App\Repositories\Interfaces\LessonCsvRepository;
 
 class CsvController extends Controller
 {
