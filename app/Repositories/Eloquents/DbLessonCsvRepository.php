@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Eloquents;
 use App\Models\Lesson;
+use Illuminate\Support\Facades\Session;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
@@ -30,9 +31,10 @@ class DbLessonCsvRepository implements LessonCsvRepository {
                 }
                 if(!empty($insert)){
                     DB::table('lessons')->insert($insert);
+                    Session::flash('flash_message','Csv successfully import to Db.');
                     return redirect()
                         ->route('admin.lessons.index');
-                }
+                } else Session::flash('flash_danger','Please recheck format Csv file!!');
             }
         }
         return back();

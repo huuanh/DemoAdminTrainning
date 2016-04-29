@@ -6,6 +6,7 @@ use App\Repositories\Interfaces\LessonRepository;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateLessonRequest;
+use Illuminate\Support\Facades\Session;
 
 class LessonsController extends Controller
 {

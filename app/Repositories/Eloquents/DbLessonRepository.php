@@ -5,6 +5,7 @@ namespace App\Repositories\Eloquents;
 use App\Repositories\Interfaces\LessonRepository;
 
 use App\Models\Lesson;
+use Illuminate\Support\Facades\Session;
 
 class DbLessonRepository implements LessonRepository {
     public function getAllLesson() {
@@ -32,9 +33,13 @@ class DbLessonRepository implements LessonRepository {
         $lesson->content = $request['content'];
         $lesson->lessonCode = $request['lessonCode'];
         if ($lesson->save()) {
+            Session::flash('flash_message','Successfully created lesson.');
             return $lesson;
         }
-        else return null;
+        else {
+            Session::flash('flash_danger','Sorry, please config something and try again :D');
+            return null;
+        }
     }
 
     public function edit($id) {
@@ -54,16 +59,24 @@ class DbLessonRepository implements LessonRepository {
         $lesson->content = $request['content'];
         $lesson->lessonCode = $request['lessonCode'];
         if ($lesson->save()) {
+            Session::flash('flash_message','Successfully edited lesson.');
             return $lesson;
         }
-        else return null;
+        else {
+            Session::flash('flash_danger','Sorry, please config something and try again :D');
+            return null;
+        }
     }
 
     public function destroy($id) {
         $lesson = Lesson::find($id);
         if($lesson->delete()) {
+            Session::flash('flash_warning','Lesson has been destroy!!!');
             return $lesson;
         }
-        else return null;
+        else {
+            Session::flash('flash_danger','Sorry, but something went wrong!! :D');
+            return null;
+        }
     }
 }
