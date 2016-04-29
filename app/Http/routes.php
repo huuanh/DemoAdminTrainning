@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', 'admin\LessonsController@index');
+Route::get('/admin', 'Admin\LessonsController@index');
 
-Route::group(['namespace' => 'admin'], function()
+Route::group(['namespace' => 'Admin'], function()
 {
     Route::resource('admin/lessons', 'LessonsController');
 });
@@ -25,6 +25,6 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('admin/importExport', 'admin\CsvController@importExport');
-Route::get('admin/downloadExcel/{type}', 'admin\CsvController@downloadExcel');
-Route::post('admin/importExcel', 'admin\CsvController@importExcel');
+Route::get('admin/importExport', 'Admin\CsvController@importExport');
+Route::get('admin/downloadExcel/{type}', 'Admin\CsvController@downloadExcel');
+Route::post('admin/importExcel', 'Admin\CsvController@importExcel');
